@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { CmpUiThemeModule } from '../assets/cmp-ui-theme/modules/cmp-ui-theme.module';
+import { GenieSystemModule } from '../assets/genie-core/system/system.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { CmpUiThemeModule } from '../assets/cmp-ui-theme/modules/cmp-ui-theme.mo
   ],
   imports: [
     BrowserModule,
-    CmpUiThemeModule
+    GenieSystemModule
   ],
   providers: [],
   bootstrap: [AppComponent]
