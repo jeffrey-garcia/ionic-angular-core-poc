@@ -1,0 +1,29 @@
+$cmp-theme-font-path: "./fonts";
+$cmp-theme-image-path: "./images";
+
+$color-font: #34384B;
+$color-navy: #424559;
+$color-border: #E0E0E0;
+$color-red: #FD817B;
+$border: $color-border solid .1em;
+$tabbar-height: 50px;
+$tab-badge-width: 17px;
+
+@mixin font-light {
+    font-family: 'Roboto-Light';
+    font-weight: 300;
+    color: $color-font;
+}
+@mixin font-regular {
+    font-family: 'Roboto-Regular';
+    font-weight: 300;
+    color: $color-font;
+}
+@mixin font-bold {
+    font-family: 'Roboto-Medium';
+    color: $color-font;
+}
+@mixin transition() {
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
