@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UtilService } from './service/util.service';
+import { SharedService } from './service/shared.service';
+import { OauthService } from './service/oauth.service';
 
 export { UtilService } from './service/util.service';
+export { SharedService } from './service/shared.service';
+export { OauthService } from './service/oauth.service';
+export { AppPublishEvents } from './app.enum';
 
 @NgModule({
   imports: [
@@ -13,7 +18,9 @@ export { UtilService } from './service/util.service';
   declarations: [],
   entryComponents: [],
   providers: [
-    UtilService
+    UtilService,
+    SharedService,
+    OauthService
   ],
   bootstrap: []
 })
