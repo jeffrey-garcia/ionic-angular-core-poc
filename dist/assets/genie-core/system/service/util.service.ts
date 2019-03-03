@@ -35,6 +35,18 @@ export class UtilService {
     console.log(`creating: ${this.constructor.name}`)
   }
 
+  /**
+   * Add Zero to number < 10
+   * @param number 
+   */
+  addZeroes(number:number): string {
+    return number < 10 ? "0" + number : `${number}`;
+  }
+
+  canGoBack(): boolean {
+    return this.router.url.split("/").length > 2;
+  }
+
   loadLazyGenericsComponentFactory = function() {
     let lazyModulesMap = new Map<String, any>();
     
