@@ -8,6 +8,7 @@ import { LocalSharedService } from './local/system/service/local-shared.service'
 import { LocalOauthService } from './local/system/service/local-oauth.service';
 
 import { GenieSystemModule } from '../assets/genie-core/system/system.module';
+import { LocalUtilService } from './local/system/service/local-util.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { GenieSystemModule } from '../assets/genie-core/system/system.module';
   providers: [
     LocalSharedService,
     LocalOauthService,
+    LocalUtilService,
   ],
   bootstrap: [IonicApp]
 })

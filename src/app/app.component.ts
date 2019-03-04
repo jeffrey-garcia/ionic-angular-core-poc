@@ -7,6 +7,7 @@ import {
 } from '../assets/genie-core/system/system.module';
 
 import { LocalOauthService } from './local/system/service/local-oauth.service';
+import { LocalUtilService } from './local/system/service/local-util.service';
 
 @Component({
   selector: 'app-root',
@@ -14,23 +15,13 @@ import { LocalOauthService } from './local/system/service/local-oauth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'ionic angular core app';
 
   constructor(
-    private oauthService:LocalOauthService,
-    private utilService:UtilService,
+    private utilService:LocalUtilService,
   ) {
     console.log(`creating: ${this.constructor.name}`);
   }
 
-  ngOnInit() {
-
-    // test oauth service call
-    this.oauthService.getUserInfo().subscribe(
-      (response:any) => {
-        console.log(`result: ${JSON.stringify(response)}`);
-      }
-    );
-
-  }
+  ngOnInit() { }
 }
