@@ -52,8 +52,8 @@ export class SharedService {
   currentMessage = this.messageSource.asObservable();
 
   constructor(
-    private translate: TranslateService,
-    private adapter: DateAdapter<any>,    
+    protected translate: TranslateService,
+    protected adapter: DateAdapter<any>,    
   ) {
     console.log(`creating: ${this.constructor.name}`);
   }

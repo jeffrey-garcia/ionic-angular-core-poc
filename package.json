@@ -37,7 +37,8 @@
     "moment": "2.22.2",
     "@angular/material": "5.2.5",
     "@angular/cdk": "5.2.5",
-    "@ngx-translate/core": "9.1.1"
+    "@ngx-translate/core": "9.1.1",
+    "@ngx-translate/http-loader": "2.0.1"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.4",
