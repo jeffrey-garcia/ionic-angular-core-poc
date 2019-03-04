@@ -17,7 +17,6 @@ export class AppComponent {
   title = 'app';
 
   constructor(
-    private sharedService:SharedService,
     private oauthService:LocalOauthService,
     private utilService:UtilService,
   ) {

@@ -229,6 +229,14 @@ export class SharedService {
       return new Date().getFullYear() + 1;
   }
 
+  get divisions() {
+      throw new Error("stub not implemented!");
+  }
+
+  public getDivisionByType(typename:string): any[] {
+      throw new Error("stub not implemented!");
+  }
+
   /**
    * returns concatenated lead's firstname and lead's lastname 
    * @param lead 

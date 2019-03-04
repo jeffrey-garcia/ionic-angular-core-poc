@@ -1,10 +1,65 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from "@ngx-translate/core";
+import { DateAdapter } from "@angular/material/core";
 
 import { SharedService } from '../../../../assets/genie-core/system/system.module';
 
+import * as divisions from '../data/address.json';
+
 @Injectable()
-export class LocalSharedService {
+export class LocalSharedService extends SharedService {
 
-  constructor() { }
+  protected _divisions : any = (<any>divisions);
 
+  constructor(
+    protected translate: TranslateService,
+    protected adapter: DateAdapter<any>,    
+  ) {
+    super(translate, adapter);
+  }
+
+  public get divisions() {
+      return this._divisions;
+  }
+
+  public getDivisionByType(typename:string): any[] {
+      if (!this._divisions.hasOwnProperty(typename)) return [];
+      return this._divisions[typename];
+  }
+}
+
+export class Province {
+	value?: string;
+	display?: string;
+}
+export class District {
+	provinceId?: string;
+	value?: string;
+	display?: string;
+}
+export class Ward {
+	provinceId?: string;
+	districtId?: string;
+	value?: string;
+	display?: string;
+}
+
+export class ContactDivision {
+	province: Province = new Province();
+	district: District = new District();
+    ward: Ward = new Ward();
+    constructor(
+        _province?: Province,
+        _district?: District,
+        _ward?: Ward,
+    ) {
+        if (_province) {
+            this.province = _province;
+            if (_district) {
+                this.district = _district;
+                if (_ward)  this.ward = _ward;
+            }
+        }
+        
+    }
 }

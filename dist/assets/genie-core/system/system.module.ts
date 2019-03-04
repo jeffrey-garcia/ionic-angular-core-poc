@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+import { RouterModule } from '@angular/router';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from './system-config';
@@ -37,6 +38,10 @@ export { AppPublishEvents } from './app.enum';
     MatDatepickerModule, 
     MatNativeDateModule,
     MatSnackBarModule,
+    RouterModule.forRoot(
+      [{ path: 'dummy', redirectTo: '/dummy', pathMatch: 'full' }],
+      { enableTracing: false }
+    ),
   ],
   exports: [],
   declarations: [],
