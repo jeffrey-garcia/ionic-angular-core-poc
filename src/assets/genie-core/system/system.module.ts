@@ -28,7 +28,7 @@ export { AppPublishEvents } from './app.enum';
           useFactory: createTranslateLoader,
           deps: [HttpClient]
       }
-    }),   
+    }),
     MatDatepickerModule, 
     MatNativeDateModule
   ],
