@@ -7,11 +7,12 @@ import { SharedService } from './service/shared.service';
 import { OauthService } from './service/oauth.service';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { createTranslateLoader } from './locale/supported-locale.model';
+import { createTranslateLoader } from './system-config';
 
 import { 
   MatDatepickerModule, MatNativeDateModule
 } from '@angular/material';
+import { L } from '@angular/core/src/render3';
 
 export { UtilService } from './service/util.service';
 export { SharedService } from './service/shared.service';
@@ -38,10 +39,11 @@ export { AppPublishEvents } from './app.enum';
   providers: [
     UtilService,
     SharedService,
-    OauthService
+    OauthService,
   ],
   bootstrap: []
 })
+
 export class GenieSystemModule {
   constructor() {
     console.log(`creating: ${this.constructor.name}`)
