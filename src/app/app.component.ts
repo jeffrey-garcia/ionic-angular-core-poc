@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { SharedService } from '../assets/genie-core/system/system.module';
+
+import { 
+  SharedService, 
+  OauthService, 
+  UtilService 
+} from '../assets/genie-core/system/system.module';
+
+import { LocalOauthService } from './local/system/service/local-oauth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +17,21 @@ export class AppComponent {
   title = 'app';
 
   constructor(
-    private sharedService:SharedService
+    private sharedService:SharedService,
+    private oauthService:LocalOauthService,
+    private utilService:UtilService,
   ) {
     console.log(`creating: ${this.constructor.name}`);
+  }
+
+  ngOnInit() {
+
+    // test oauth service call
+    this.oauthService.getUserInfo().subscribe(
+      (response:any) => {
+        console.log(`result: ${JSON.stringify(response)}`);
+      }
+    );
+
   }
 }

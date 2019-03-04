@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 
-import { UtilService } from './service/util.service';
-import { SharedService } from './service/shared.service';
-import { OauthService } from './service/oauth.service';
-
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from './system-config';
 
+import { DeviceDetectorModule, DeviceDetectorService } from 'ngx-device-detector';
+
 import { 
-  MatDatepickerModule, MatNativeDateModule
+  MatDatepickerModule, 
+  MatNativeDateModule,
+  MatSnackBarModule
 } from '@angular/material';
-import { L } from '@angular/core/src/render3';
+
+import { UtilService } from './service/util.service';
+import { SharedService } from './service/shared.service';
+import { OauthService } from './service/oauth.service';
 
 export { UtilService } from './service/util.service';
 export { SharedService } from './service/shared.service';
@@ -23,6 +26,7 @@ export { AppPublishEvents } from './app.enum';
   imports: [
     CommonModule,
     HttpClientModule,
+    DeviceDetectorModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -31,7 +35,8 @@ export { AppPublishEvents } from './app.enum';
       }
     }),
     MatDatepickerModule, 
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule,
   ],
   exports: [],
   declarations: [],
@@ -40,6 +45,7 @@ export { AppPublishEvents } from './app.enum';
     UtilService,
     SharedService,
     OauthService,
+    DeviceDetectorService,
   ],
   bootstrap: []
 })

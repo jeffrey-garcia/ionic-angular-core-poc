@@ -5,5 +5,22 @@
 
 export const environment = {
   production: false,
-  countryCode: 'vn' // core
+  countryCode: 'vn', // core
+
+  salesforce: {
+    userinfo: 'https://vncmpsit-manulife-vietnam.cs72.force.com/services/apexrest/userinfo',
+    login: 'https://localhost/pages/action/login',
+    logout: 'https://localhost/pages/action/logout',
+    registerPush: 'https://vncmpsit-manulife-vietnam.cs72.force.com/cmp/services/apexrest/push-proxy/v1/registration'
+  },
+
+  mobile: {
+    openAddressBook:  'https://localhost/services/apexrest/openAddressBook',
+    pushDeviceInfo: 'https://localhost/services/apexrest/pushDeviceInfo',
+    fetchNotifications:  'https://localhost/services/apexrest/fetchNotifications',
+    appInfo: 'https://localhost/services/apexrest/AppInfo',
+    exportLog: 'https://localhost/services/apexrest/exportLog',
+    clearUserSession: 'https://localhost/services/apexrest/clearUserSession',
+    call: 'https://localhost/services/apexrest/call'
+  },
 };

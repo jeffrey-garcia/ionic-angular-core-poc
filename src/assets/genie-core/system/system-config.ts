@@ -4,7 +4,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export interface Config {
     countryCode?: string,
     defaultLocale?: string,
-    supportedLocale?: Array<string>
+    supportedLocale?: Array<string>,
+    salesforceApi?: any
+    mobileApi?: any
 }
 
 export const ConfigFactory = function() {
@@ -18,6 +20,20 @@ export const ConfigFactory = function() {
         },
         getCountryCode: function() {
             return config.countryCode;
+        },
+        setSalesforceApi: function(_salesforceApi:any) {
+            config.salesforceApi = _salesforceApi;
+            console.log(`salesforce api configured: ${JSON.stringify(config.salesforceApi)}`);
+        },
+        getSalesforceApi: function() {
+            return config.salesforceApi;
+        },
+        setMobileApi: function(_mobileApi:any) {
+            config.mobileApi = _mobileApi;
+            console.log(`mobile api configured: ${JSON.stringify(config.mobileApi)}`);
+        },
+        getMobileApi: function() {
+            return config.mobileApi;
         }
     }
 }();

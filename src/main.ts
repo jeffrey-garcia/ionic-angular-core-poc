@@ -13,6 +13,8 @@ if (environment.production) {
 // retrieve the country code from environment file and inject into system config factory
 console.log(`environment country code: ${environment.countryCode}`);
 ConfigFactory.setCountryCode(environment.countryCode);
+ConfigFactory.setSalesforceApi(environment.salesforce);
+ConfigFactory.setMobileApi(environment.mobile);
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
