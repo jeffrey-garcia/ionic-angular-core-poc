@@ -10,6 +10,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+// retrieve the country code from environment file and inject into system config factory
 console.log(`environment country code: ${environment.countryCode}`);
 ConfigFactory.setCountryCode(environment.countryCode);
 
