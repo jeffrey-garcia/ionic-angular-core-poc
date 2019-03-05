@@ -4,7 +4,7 @@ import { DateAdapter } from "@angular/material/core";
 
 import * as moment from 'moment';
 
-import { SharedService } from '../../../../assets/genie-core/system/system.module';
+import { SharedService } from '../../../../assets/genie-core/system/service/shared.service';
 import { Months } from '../../../../assets/genie-core/system/service/shared.service';
 
 import * as divisions from '../data/address.json';

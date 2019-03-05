@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { RouterModule } from '@angular/router';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -17,11 +17,13 @@ import {
 import { UtilService } from './service/util.service';
 import { SharedService } from './service/shared.service';
 import { OauthService } from './service/oauth.service';
+import { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 
 export { UtilService } from './service/util.service';
 export { SharedService } from './service/shared.service';
 export { OauthService } from './service/oauth.service';
 export { AppPublishEvents } from './app.enum';
+export { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 
 @NgModule({
   imports: [
@@ -51,6 +53,11 @@ export { AppPublishEvents } from './app.enum';
     SharedService,
     OauthService,
     DeviceDetectorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true
+	  },
   ],
   bootstrap: []
 })

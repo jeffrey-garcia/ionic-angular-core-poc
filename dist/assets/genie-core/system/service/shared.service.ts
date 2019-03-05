@@ -8,7 +8,7 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import * as moment from 'moment';
 
 import { Locale, getSupportedLocaleByCountryCode, getDefaultLocaleByCountryCode } from "../locale/supported-locale.model";
-import { ConfigFactory } from "../../../../../dist/assets/genie-core/system/system-config";
+import { ConfigFactory } from "../system-config";
 
 export class Months {
     names?: Array<string>;
