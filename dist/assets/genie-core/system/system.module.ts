@@ -20,7 +20,7 @@ import { OauthService } from './service/oauth.service';
 import { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 
 export { UtilService } from './service/util.service';
-export { SharedService } from './service/shared.service';
+export { SharedService, Months } from './service/shared.service';
 export { OauthService } from './service/oauth.service';
 export { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 
