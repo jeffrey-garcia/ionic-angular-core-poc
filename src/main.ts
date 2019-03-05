@@ -12,6 +12,7 @@ if (environment.production) {
 
 // retrieve the country code from environment file and inject into system config factory
 console.log(`environment country code: ${environment.countryCode}`);
+ConfigFactory.setEnvironmentName(environment.envName);
 ConfigFactory.setCountryCode(environment.countryCode);
 ConfigFactory.setSalesforceApi(environment.salesforce);
 ConfigFactory.setMobileApi(environment.mobile);

@@ -262,5 +262,14 @@ export class SharedService {
       moment.localeData(locale).monthsShort()
     ));
   }
+  
+  public environmentIsWeb(): boolean {
+      let envName = ConfigFactory.getEnvironmentName();
+      if (envName == null) {
+          throw new Error(`environment name is not configured!`);
+      } else {
+        return envName.toLowerCase().indexOf("web") > -1
+      }
+  }
 
 }

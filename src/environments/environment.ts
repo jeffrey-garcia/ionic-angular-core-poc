@@ -5,8 +5,9 @@
 
 export const environment = {
   production: false,
+  envName: 'dev-vn',
   countryCode: 'vn', // core
-
+  
   salesforce: {
     userinfo: 'https://vncmpsit-manulife-vietnam.cs72.force.com/services/apexrest/userinfo',
     login: 'https://localhost/pages/action/login',
