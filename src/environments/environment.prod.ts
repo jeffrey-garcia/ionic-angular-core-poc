@@ -1,5 +1,7 @@
+import { SystemCountry } from "../assets/genie-core/system/config/system-config.model";
+
 export const environment = {
   production: true,
-  envName: 'prod-vn',
-  countryCode: 'vn', // core
+  envName: 'prod-core',
+  countryCode: SystemCountry.CORE, 
 };

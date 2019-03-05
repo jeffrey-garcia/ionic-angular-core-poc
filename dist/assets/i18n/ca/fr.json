@@ -1,0 +1,4 @@
+{
+    "TESTING_MESSAGE_1": "Ceci est un message test",
+    "CURRENT_MONTH": "mois en cours: {{month}}"
+}

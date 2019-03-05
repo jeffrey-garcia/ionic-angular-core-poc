@@ -4,7 +4,7 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { RouterModule } from '@angular/router';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { createTranslateLoader } from './system-config';
+import { createTranslateLoader } from './config/locale-config.model';
 
 import { DeviceDetectorModule, DeviceDetectorService } from 'ngx-device-detector';
 
@@ -18,11 +18,13 @@ import { UtilService } from './service/util.service';
 import { SharedService } from './service/shared.service';
 import { OauthService } from './service/oauth.service';
 import { AppHttpInterceptor } from './interceptor/app-http-interceptor';
+import { WindowRef } from './scripts/WindowRef';
 
 export { UtilService } from './service/util.service';
 export { SharedService, Months } from './service/shared.service';
 export { OauthService } from './service/oauth.service';
 export { AppHttpInterceptor } from './interceptor/app-http-interceptor';
+export { WindowRef } from './scripts/WindowRef';
 
 @NgModule({
   imports: [
@@ -48,6 +50,7 @@ export { AppHttpInterceptor } from './interceptor/app-http-interceptor';
   declarations: [],
   entryComponents: [],
   providers: [
+    WindowRef,
     UtilService,
     SharedService,
     OauthService,

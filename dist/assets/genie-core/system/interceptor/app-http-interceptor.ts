@@ -7,7 +7,7 @@ import 'rxjs/add/operator/do';
 
 import { WindowRef } from '../scripts/WindowRef';
 import { DeviceDetectorService, DEVICES } from 'ngx-device-detector';
-import { ConfigFactory } from '../system-config';
+import { ConfigFactory } from '../config/system-config.model';
 
 @Injectable()
 export class AppHttpInterceptor implements HttpInterceptor {

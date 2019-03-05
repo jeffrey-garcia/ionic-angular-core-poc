@@ -13,7 +13,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { SharedService } from './shared.service';
-import { ConfigFactory } from '../system-config';
+import { ConfigFactory } from '../config/system-config.model';
 
 @Injectable()
 export class OauthService {

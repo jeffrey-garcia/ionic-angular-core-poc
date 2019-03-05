@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { TranslateService } from "@ngx-translate/core";
+
+import * as moment from 'moment';
+
 import { 
   SharedService, 
   OauthService, 
@@ -9,6 +13,7 @@ import {
 import { LocalSharedService } from './local/system/service/local-shared.service';
 import { LocalOauthService } from './local/system/service/local-oauth.service';
 import { LocalUtilService } from './local/system/service/local-util.service';
+import { ConfigFactory } from '../assets/genie-core/system/config/system-config.model';
 
 @Component({
   selector: 'app-root',
@@ -25,9 +30,17 @@ export class AppComponent {
     private localSharedService:LocalSharedService,
     private localOauthService:LocalOauthService,
     private localUtilService:LocalUtilService,
+    private translate: TranslateService,
   ) {
     console.log(`creating: ${this.constructor.name}`);
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.translate.use(this.sharedService.locale);
+  }
+
+  getMonthName(): any {
+    let monthName = moment(new Date().toISOString()).format('MMMM');
+    return { month: monthName };;
+  }
 }

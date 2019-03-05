@@ -7,8 +7,8 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import * as moment from 'moment';
 
-import { Locale, getSupportedLocaleByCountryCode, getDefaultLocaleByCountryCode } from "../locale/supported-locale.model";
-import { ConfigFactory } from "../system-config";
+import { getDefaultLocaleByCountryCode } from "../config/locale-config.model";
+import { ConfigFactory } from "../config/system-config.model";
 
 export class Months {
     names?: Array<string>;
@@ -31,7 +31,9 @@ export class SharedService {
   protected _loginComplete: boolean = false;
   protected _logoutComplete: boolean = false;
   protected _pendingHideToolbar = false;
-  protected _locale: string = getDefaultLocaleByCountryCode(ConfigFactory.getCountryCode());
+  protected _locale: string = getDefaultLocaleByCountryCode(
+                                    ConfigFactory.getCountryCode(), 
+                                    ConfigFactory.getLocale())
   
   protected _menuSideNav: boolean = true;
   protected _isDynamicHeader : boolean = false;

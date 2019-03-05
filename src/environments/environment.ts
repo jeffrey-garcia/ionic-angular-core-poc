@@ -1,3 +1,7 @@
+import { SystemLocale } from "../assets/genie-core/system/config/locale-config.model";
+import { SystemCountry } from "../assets/genie-core/system/config/system-config.model";
+import { SystemCurrency } from "../assets/genie-core/system/config/currency-config.model";
+
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
@@ -5,9 +9,15 @@
 
 export const environment = {
   production: false,
-  envName: 'dev-vn',
-  countryCode: 'vn', // core
-  
+
+  envName: 'dev-core',
+  countryCode: SystemCountry.CORE,
+  languages: [`${SystemLocale.EN}-us'`, `${SystemLocale.ZH_HANT}-${SystemCountry.CORE}`],
+  language_def: SystemLocale.ZH_HANT,
+  currencies: [
+    SystemCurrency.HKD, SystemCurrency.USD
+  ],
+
   salesforce: {
     userinfo: 'https://vncmpsit-manulife-vietnam.cs72.force.com/services/apexrest/userinfo',
     login: 'https://localhost/pages/action/login',
