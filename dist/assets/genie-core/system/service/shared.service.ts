@@ -7,7 +7,8 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import * as moment from 'moment';
 
-import { Locale } from "../locale/supported-locale.model";
+import { Locale, getSupportedLocaleByCountryCode, getDefaultLocaleByCountryCode } from "../locale/supported-locale.model";
+import { ConfigFactory } from "../../../../../dist/assets/genie-core/system/system-config";
 
 export class Months {
     names?: Array<string>;
@@ -20,36 +21,36 @@ export class Months {
 
 @Injectable()
 export class SharedService {
-  private _activity?: string = undefined;
-  private _componentFullScreen: boolean = false;
-  private _prevURL?: string;
-  private _currentURL?: string;
-  private _searchFilter: string = "";
-  private _inputActive: boolean = false;
+  protected _activity?: string = undefined;
+  protected _componentFullScreen: boolean = false;
+  protected _prevURL?: string;
+  protected _currentURL?: string;
+  protected _searchFilter: string = "";
+  protected _inputActive: boolean = false;
   
-  private _loginComplete: boolean = false;
-  private _logoutComplete: boolean = false;
-  private _pendingHideToolbar = false;
-  private _locale: string = Locale.en;
+  protected _loginComplete: boolean = false;
+  protected _logoutComplete: boolean = false;
+  protected _pendingHideToolbar = false;
+  protected _locale: string = getDefaultLocaleByCountryCode(ConfigFactory.getCountryCode());
   
-  private _menuSideNav: boolean = true;
-  private _isDynamicHeader : boolean = false;
-  private _userInfo = new Subject<any>();
-  private _appInfo = new Object();
-  private _userInfoData?: any;
-  private currenUserId = '';
-  private _fullname: string = '';
-  private userInfoList = new Array();
+  protected _menuSideNav: boolean = true;
+  protected _isDynamicHeader : boolean = false;
+  protected _userInfo = new Subject<any>();
+  protected _appInfo = new Object();
+  protected _userInfoData?: any;
+  protected currenUserId = '';
+  protected _fullname: string = '';
+  protected userInfoList = new Array();
   
-  private _months: Months = new Months(moment.months(),moment.monthsShort());
-  private monthsBehavior = new BehaviorSubject<Months>(this._months);
-  public monthsChange = this.monthsBehavior.asObservable();
+  protected _months: Months = new Months(moment.months(),moment.monthsShort());
+  protected monthsBehavior = new BehaviorSubject<Months>(this._months);
+  protected monthsChange = this.monthsBehavior.asObservable();
 
-  private _initialPage : string = '';
-  private _nextTabPage: string = '';
+  protected _initialPage : string = '';
+  protected _nextTabPage: string = '';
 
-  private messageSource = new BehaviorSubject('default message');
-  currentMessage = this.messageSource.asObservable();
+  protected messageSource = new BehaviorSubject('default message');
+  protected currentMessage = this.messageSource.asObservable();
 
   constructor(
     protected translate: TranslateService,
@@ -241,7 +242,7 @@ export class SharedService {
    * returns concatenated lead's firstname and lead's lastname 
    * @param lead 
    */
-  getFullName(lead:any): string {
+  public getFullName(lead:any): string {
       if (lead.firstName) {
           this._fullname = lead.firstName + ' ' + lead.lastName;
       } else {
@@ -254,7 +255,7 @@ export class SharedService {
    * moment: Load capitalize month names from moment.
    * @param locale 
    */
-  private setMomentLocale(locale:string) {
+  protected setMomentLocale(locale:string) {
     moment.locale(locale);
     this.monthsBehavior.next(new Months(
       moment.localeData(locale).months(),

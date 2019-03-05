@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
 import { DateAdapter } from "@angular/material/core";
 
+import * as moment from 'moment';
+
 import { SharedService } from '../../../../assets/genie-core/system/system.module';
+import { Months } from '../../../../assets/genie-core/system/service/shared.service';
 
 import * as divisions from '../data/address.json';
 
@@ -25,6 +28,19 @@ export class LocalSharedService extends SharedService {
   public getDivisionByType(typename:string): any[] {
       if (!this._divisions.hasOwnProperty(typename)) return [];
       return this._divisions[typename];
+  }
+
+  /**
+   * moment: Load capitalize month names from moment.
+   * @param locale 
+   */
+  protected setMomentLocale(locale:string) {
+        // override core for local settings
+        moment.locale(locale);
+        this.monthsBehavior.next(new Months(
+        moment.localeData(locale).months(),
+        moment.localeData(locale).monthsShort()
+    ));
   }
 }
 
