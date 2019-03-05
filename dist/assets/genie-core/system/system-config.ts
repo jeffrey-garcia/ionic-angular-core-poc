@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export interface Config {
+    environmentName?: string,
     countryCode?: string,
     defaultLocale?: string,
     supportedLocale?: Array<string>,
@@ -11,12 +12,19 @@ export interface Config {
 
 export const ConfigFactory = function() {
     var config:Config = {}
-    console.log(`initialize system config: ${JSON.stringify(config)}`);
+    console.log(`initialize Genie system config: ${JSON.stringify(config)}`);
 
     return {
+        setEnvironmentName: function(_environmentName:string) {
+            config.environmentName = _environmentName;
+            console.log(`environment name configured: ${config.environmentName}`);
+        },
+        getEnvironmentName: function() {
+            return config.environmentName;
+        },
         setCountryCode: function(_countryCode:string) {
             config.countryCode = _countryCode;
-            console.log(`system country code configured: ${config.countryCode}`);
+            console.log(`country code configured: ${config.countryCode}`);
         },
         getCountryCode: function() {
             return config.countryCode;

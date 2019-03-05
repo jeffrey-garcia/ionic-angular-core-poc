@@ -6,6 +6,7 @@ import {
   UtilService 
 } from '../assets/genie-core/system/system.module';
 
+import { LocalSharedService } from './local/system/service/local-shared.service';
 import { LocalOauthService } from './local/system/service/local-oauth.service';
 import { LocalUtilService } from './local/system/service/local-util.service';
 
@@ -15,10 +16,15 @@ import { LocalUtilService } from './local/system/service/local-util.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ionic angular core app';
+  title = 'Core Ionic Angular App';
 
   constructor(
-    private utilService:LocalUtilService,
+    private sharedService:SharedService,
+    private oauthService:OauthService,
+    private utilService:UtilService,
+    private localSharedService:LocalSharedService,
+    private localOauthService:LocalOauthService,
+    private localUtilService:LocalUtilService,
   ) {
     console.log(`creating: ${this.constructor.name}`);
   }

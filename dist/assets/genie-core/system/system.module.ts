@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { RouterModule } from '@angular/router';
@@ -22,7 +22,6 @@ import { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 export { UtilService } from './service/util.service';
 export { SharedService } from './service/shared.service';
 export { OauthService } from './service/oauth.service';
-export { AppPublishEvents } from './app.enum';
 export { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 
 @NgModule({

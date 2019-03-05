@@ -8,6 +8,10 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+  ],
+  "include": [
+    "./**/*.ts",
+    "../node_modules/manulife-mobile-ionic-angular-ui/dist/index.ts"
   ]
 }

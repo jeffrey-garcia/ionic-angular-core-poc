@@ -8,7 +8,7 @@ import { DeviceDetectorService, DeviceInfo } from 'ngx-device-detector';
 import { SharedService } from './shared.service';
 import { OauthService } from './oauth.service';
 
-import { AppPublishEvents } from '../app.enum';
+import { AppPublishEvents } from '../../app/model/app.enum';
 import * as moment from 'moment';
 
 import { Observable } from 'rxjs/Observable';

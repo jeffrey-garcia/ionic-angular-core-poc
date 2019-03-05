@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "assets/genie-core/app/theme/app-ui-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

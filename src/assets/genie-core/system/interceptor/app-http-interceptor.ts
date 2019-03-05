@@ -2,7 +2,7 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse, HttpResponse, HttpClient} from '@angular/common/http';
 
 import { Events } from 'ionic-angular';
-import { AppPublishEvents } from '../app.enum';
+import { AppPublishEvents } from '../../app/model/app.enum';
 import 'rxjs/add/operator/do';
 
 import { WindowRef } from '../scripts/WindowRef';
