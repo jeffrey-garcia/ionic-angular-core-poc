@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Temp</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ionic Angular Core PoC</title>
+  <base href="./"> <!-- change base href to ./ for running in embedded webview -->
+  <!-- ensures the webview takes up the full size of the screen, see also: https://blog.ionicframework.com/ios-11-checklist/ -->
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+    <!-- <app-root></app-root> -->
+    <ion-app>
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==);
+          background-position:center;
+          background-repeat:no-repeat;
+          background-attachment:fixed;
+        }
+      </style>
+    </ion-app>
 </body>
 </html>
