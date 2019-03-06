@@ -270,7 +270,7 @@ export class SharedService {
       if (envName == null) {
           throw new Error(`environment name is not configured!`);
       } else {
-        return envName.toLowerCase().indexOf("web") > -1
+        return envName.toLowerCase().indexOf("dev") > -1
       }
   }
 

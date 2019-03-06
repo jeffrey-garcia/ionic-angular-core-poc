@@ -8,6 +8,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from '../assets/genie-core/system/config/locale-config.model';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { LocalSharedService } from './local/system/service/local-shared.service';
 import { LocalOauthService } from './local/system/service/local-oauth.service';
 import { LocalUtilService } from './local/system/service/local-util.service';
@@ -20,10 +21,16 @@ import {
   AppHttpInterceptor 
 } from '../assets/genie-core/system/system.module';
 import { GenieAppUiModule } from '../assets/genie-core/app/app-ui.module';
+import { GenieFeatureModule, LoginComponent } from '../assets/genie-core/feature/feature.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+  ],
+  entryComponents: [
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,9 @@ import { GenieAppUiModule } from '../assets/genie-core/app/app-ui.module';
       }
     }),
     GenieSystemModule,
-    GenieAppUiModule
+    GenieAppUiModule,
+    GenieFeatureModule
+
   ],
   providers: [
     LocalSharedService,

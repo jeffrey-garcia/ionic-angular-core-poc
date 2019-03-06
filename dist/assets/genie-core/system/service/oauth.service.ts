@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { catchError, tap, mergeMap } from 'rxjs/operators';
+import { catchError, tap, mergeMap, delay } from 'rxjs/operators';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -33,7 +33,15 @@ export class OauthService {
   /**
    * Call Mobile AppInfo API
    */
+  protected getAppInfo_stub(): Observable<any> {
+    // simulate stub get app info
+    return Observable.of({}).pipe(delay(500));
+  }
   public getAppInfo(appHeaders?:any): Observable<any> {
+    if (this.sharedService.environmentIsWeb()) {
+      return this.getAppInfo_stub();
+    }
+
     let _headers:any = {};
     if (appHeaders) {
       _headers['CMP-User-Data'] = JSON.stringify(appHeaders);
@@ -172,29 +180,17 @@ export class OauthService {
   }  
 
   /**
-   * Deprecated
    * Call Salesforce Login API
    */
-  // login(): Observable<{}|IsCmpUserResponse>  {
-  //   const loginAction = this.http.get(this.salesforceApi.login, {'responseType': 'text'})
-  //   return loginAction.map(loginResponse => { 
-  //     console.log(`[OAUTH_LOGIN]...`, loginResponse)
-  //     return { "message":loginResponse }
-  //   }).pipe(
-  //     mergeMap(response => 
-  //       this.isCmpUser().map(isCMPUserResponse => { 
-  //         return [response,isCMPUserResponse] // combine login and isCMPUser response
-  //       })
-  //     ),
-  //     tap(resp => {
-  //       console.log('[LOGIN_COMPLETE]')
-  //       this.sharedService.loginComplete = true; 
-  //     }),
-  //     catchError(this.handleError('login', {}))
-  //   )
-  // }
+  public login_v2_stub():Observable<boolean> {
+    return Observable.of(true).pipe(delay(3000));
+  }
 
   public login_v2():Observable<boolean> {
+    if (this.sharedService.environmentIsWeb()) {
+      return this.login_v2_stub();
+    }
+
     // align the login routine for both iOS and Android
     if (!ConfigFactory.getSalesforceApi().hasOwnProperty("login")) {
       throw new Error(`salesforce api: login is not defined in environment!`);
@@ -240,53 +236,8 @@ export class OauthService {
   }  
 
   /**
-   * Deprecated
    * Call Salesforce Logout API
    */
-  // logout():Observable<any> {
-  //   // Marketing Leads [starts] CMP-2799
-  //   // use javascript closure for embedded logout execution upon success/failure push registration
-  //   const _oauthService = this
-  //   const executeLogout = (function(observer) {
-  //     // align the login routine for both iOS and Android
-  //     _oauthService.logout_v2().pipe(
-  //       tap(
-  //         (response) => {
-  //           console.log(`logout successful: ${response}`)
-  //           observer.next(response)
-  //           observer.complete()
-  //         },
-  //         (error) => {
-  //           observer.error(error)
-  //           observer.complete()
-  //         }
-  //       ),
-  //       catchError(_oauthService.handleError('logout', {}))
-  //     ).subscribe()
-  //   })
-
-  //   // trigger the un-register API to backend when user click logout but BEFORE the logout API is passed to iOS
-  //   // we don't care about the result of the un-register API (no matter is declined or error) we still need proceed the logout
-  //   // the sequence does matter because we always need to finish the un-register API before we trigger logout
-  //   // the un-register URL must be externalized into the environment file
-  //   return Observable.create(
-  //     (observer) => {
-  //       this.unregisterPushService()
-  //       .subscribe(
-  //         (respone) => {
-  //           console.log("unregister push success")
-  //           executeLogout(observer)
-  //         },
-  //         (error) => {
-  //           console.log(`failed to un-register push: ${error}`)
-  //           executeLogout(observer)
-  //         }
-  //       )
-  //     }
-  //   )
-  //   // Marketing Leads [ends] CMP-2799
-  // }
-
   public logout_v2():Observable<any> {
     // align the login routine for both iOS and Android
 

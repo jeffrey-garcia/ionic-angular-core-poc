@@ -3,39 +3,39 @@
 export const SystemCurrency = {
     HKD: {
         alphaCode: 'HKD',
-        mnemonic: '$',
+        symbol: '$',
         exponent: -2
     },
     USD: {
         alphaCode: 'USD',
-        mnemonic: '$',
+        symbol: '$',
         exponent: -2
     },
     CAD: {
         alphaCode: 'CAD',
-        mnemonic: '$',
+        symbol: '$',
         exponent: -2
     },
     JPY: {
         alphaCode: 'JPY',
-        mnemonic: '¥',
+        symbol: '¥',
         exponent: 0
     },
     VND: {
         alphaCode: 'VND',
-        mnemonic: '$',
+        symbol: '$',
         exponent: -2
     },
     KHR: {
         alphaCode: 'KHR',
-        mnemonic: '៛',
+        symbol: '៛',
         exponent: -2
     }
 }
 
 export interface Currency {
     alphaCode:string,
-    mnemonic:string,
+    symbol:string,
     exponent:number
 }
 

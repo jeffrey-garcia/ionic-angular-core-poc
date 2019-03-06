@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+
+import { Events } from 'ionic-angular';
 
 import { TranslateService } from "@ngx-translate/core";
-
-import * as moment from 'moment';
 
 import { 
   SharedService, 
@@ -13,7 +13,10 @@ import {
 import { LocalSharedService } from './local/system/service/local-shared.service';
 import { LocalOauthService } from './local/system/service/local-oauth.service';
 import { LocalUtilService } from './local/system/service/local-util.service';
-import { ConfigFactory } from '../assets/genie-core/system/config/system-config.model';
+
+import { AppPublishEvents } from '../assets/genie-core/app/app-ui.module';
+import { LoginComponent } from '../assets/genie-core/feature/authentication/login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +24,7 @@ import { ConfigFactory } from '../assets/genie-core/system/config/system-config.
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Core Ionic Angular App';
+  rootPage: any;
 
   constructor(
     private sharedService:SharedService,
@@ -31,16 +34,25 @@ export class AppComponent {
     private localOauthService:LocalOauthService,
     private localUtilService:LocalUtilService,
     private translate: TranslateService,
+    private events : Events,
+    private ngZone: NgZone
   ) {
     console.log(`creating: ${this.constructor.name}`);
   }
 
   ngOnInit() { 
     this.translate.use(this.sharedService.locale);
+
+    this.events.subscribe(AppPublishEvents.APP_CHANGE_ROOT,(root?:any) => {
+      this.ngZone.run(()=>{
+        this.setRootPage(root ? root : HomeComponent);
+      });
+    });
+
+    this.events.publish(AppPublishEvents.APP_CHANGE_ROOT, LoginComponent);
   }
 
-  getMonthName(): any {
-    let monthName = moment(new Date().toISOString()).format('MMMM');
-    return { month: monthName };;
+  setRootPage(rootPage:any) {
+    this.rootPage = rootPage;
   }
 }
