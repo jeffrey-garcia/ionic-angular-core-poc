@@ -25,6 +25,9 @@ export { SharedService, Months } from './service/shared.service';
 export { OauthService } from './service/oauth.service';
 export { AppHttpInterceptor } from './interceptor/app-http-interceptor';
 export { WindowRef } from './scripts/WindowRef';
+export { createTranslateLoader, LocaleConfig, SystemLocale, getDefaultLocaleByCountryCode, getSupportedLocaleByCountryCode } from './config/locale-config.model';
+export { ConfigFactory, CountryConfig, SystemCountry } from './config/system-config.model';
+export { Currency, CurrencyConfig, SystemCurrency } from './config/currency-config.model';
 
 @NgModule({
   imports: [

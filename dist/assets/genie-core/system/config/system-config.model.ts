@@ -77,6 +77,9 @@ export const ConfigFactory = function() {
         getLocale: function() {
             return countryConfig.locale;
         },
+        getCurrency: function() {
+            return countryConfig.currency;
+        },
         getSalesforceApi: function() {
             return countryConfig.salesforceApi;
         },
