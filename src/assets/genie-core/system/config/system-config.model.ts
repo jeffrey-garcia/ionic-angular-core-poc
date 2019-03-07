@@ -1,4 +1,4 @@
-import { LocaleConfig } from "./locale-config.model";
+import { LocaleConfig, SystemLocale } from "./locale-config.model";
 import { CurrencyConfig, Currency } from "./currency-config.model";
 
 // ISO 3166-1 Alpha 2 Country Code
@@ -13,7 +13,7 @@ export enum SystemCountry {
 
 export interface CountryConfig {
     environmentName?: string,
-    countryCode?: string,
+    countryCode?: SystemCountry,
     locale?: LocaleConfig,
     currency?: CurrencyConfig,
     salesforceApi?: any
@@ -29,12 +29,12 @@ export const ConfigFactory = function() {
         console.log(`environment name configured: ${countryConfig.environmentName}`);
     }
 
-    let setCountryCode = function(_countryCode:string) {
+    let setCountryCode = function(_countryCode:SystemCountry) {
         countryConfig.countryCode = _countryCode;
         console.log(`country code configured: ${countryConfig.countryCode}`);
     }
 
-    let setLocale = function(_supportedLocales:Array<string>, _defaultLocale:string) {
+    let setLocale = function(_supportedLocales:Array<SystemLocale>, _defaultLocale:SystemLocale) {
         countryConfig.locale = {
             supportedLocales: _supportedLocales,
             defaultLocale: _defaultLocale

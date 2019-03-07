@@ -1,37 +1,56 @@
-
 // ISO 4217 Currency Code
-export const SystemCurrency = {
-    HKD: {
+export const SystemCurrency = function() {
+    const HKD:Currency = {
         alphaCode: 'HKD',
         symbol: '$',
         exponent: -2
-    },
-    USD: {
+    }
+    const USD:Currency = {
         alphaCode: 'USD',
         symbol: '$',
         exponent: -2
-    },
-    CAD: {
+    }
+    const CAD:Currency = {
         alphaCode: 'CAD',
         symbol: '$',
         exponent: -2
-    },
-    JPY: {
+    }
+    const JPY:Currency = {
         alphaCode: 'JPY',
         symbol: '¥',
         exponent: 0
-    },
-    VND: {
+    }
+    const VND:Currency = {
         alphaCode: 'VND',
         symbol: '$',
         exponent: -2
-    },
-    KHR: {
+    }
+    const KHR:Currency = {
         alphaCode: 'KHR',
         symbol: '៛',
         exponent: -2
     }
-}
+    return {
+        HKD: function() {
+            return HKD
+        }(),
+        USD: function() {
+            return USD
+        }(),
+        CAD: function() {
+            return CAD
+        }(),
+        JPY: function() {
+            return JPY
+        }(),
+        VND: function() {
+            return VND
+        }(),
+        KHR: function() {
+            return KHR
+        }()
+    }
+}();
 
 export interface Currency {
     alphaCode:string,

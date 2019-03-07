@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { ConfigFactory } from './system-config.model'
+import { ConfigFactory, SystemCountry } from './system-config.model'
 
 export function createTranslateLoader(http: HttpClient) {
     console.log(`initializing translation for country code: ${ConfigFactory.getCountryCode()}`);
@@ -20,11 +20,11 @@ export enum SystemLocale {
 }
 
 export interface LocaleConfig {
-    supportedLocales:Array<string>,
-    defaultLocale:string
+    supportedLocales:Array<SystemLocale>,
+    defaultLocale:SystemLocale
 }
 
-export function getDefaultLocaleByCountryCode(countryCode?:string, localeConfig?:LocaleConfig): string {
+export function getDefaultLocaleByCountryCode(countryCode?:SystemCountry, localeConfig?:LocaleConfig): SystemLocale {
     if (countryCode == null) {
         throw new Error(`country code is not defined in environment!`);
     }
@@ -41,7 +41,7 @@ export function getDefaultLocaleByCountryCode(countryCode?:string, localeConfig?
     }
 }
 
-export function getSupportedLocaleByCountryCode(countryCode:string, localeConfig?:LocaleConfig): Array<string> {
+export function getSupportedLocaleByCountryCode(countryCode:SystemCountry, localeConfig?:LocaleConfig): Array<SystemLocale> {
     if (countryCode == null) {
         throw new Error(`country code is not defined in environment!`);
     }
