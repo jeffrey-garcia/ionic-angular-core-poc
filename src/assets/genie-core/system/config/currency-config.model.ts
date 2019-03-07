@@ -33,22 +33,22 @@ export const SystemCurrency = function() {
     return {
         HKD: function() {
             return HKD
-        },
+        }(),
         USD: function() {
             return USD
-        },
+        }(),
         CAD: function() {
             return CAD
-        },
+        }(),
         JPY: function() {
             return JPY
-        },
+        }(),
         VND: function() {
             return VND
-        },
+        }(),
         KHR: function() {
             return KHR
-        }
+        }()
     }
 }();
 
