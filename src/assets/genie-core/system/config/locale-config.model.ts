@@ -20,7 +20,7 @@ export enum SystemLocale {
 }
 
 export interface LocaleConfig {
-    supportedLocales:Array<SystemLocale>,
+    supportedLocales:Array<string>,
     defaultLocale:SystemLocale
 }
 
@@ -41,7 +41,7 @@ export function getDefaultLocaleByCountryCode(countryCode?:SystemCountry, locale
     }
 }
 
-export function getSupportedLocaleByCountryCode(countryCode:SystemCountry, localeConfig?:LocaleConfig): Array<SystemLocale> {
+export function getSupportedLocaleByCountryCode(countryCode:SystemCountry, localeConfig?:LocaleConfig): Array<string> {
     if (countryCode == null) {
         throw new Error(`country code is not defined in environment!`);
     }

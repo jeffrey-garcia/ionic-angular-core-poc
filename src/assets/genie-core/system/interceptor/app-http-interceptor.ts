@@ -55,26 +55,22 @@ export class AppHttpInterceptor implements HttpInterceptor {
 						// publish logout event
 						this.events.publish(AppPublishEvents.APP_WILL_LOGOUT, null);
 
-						if (!ConfigFactory.getSalesforceApi().hasOwnProperty("logout")) {
-							throw new Error(`salesforce api: logout is not defined in environment!`);
-						} else {
-							let logout = ConfigFactory.getSalesforceApi()["logout"];
+						let logout = ConfigFactory.getEnvironment().salesforce.logout;
 
-							// fire a logout api to complete the session timeout scenario
-							// don't care about the logout complete callback, just fire event to redirect to login page
-							this.httpClient.get(logout,
-								{ responseType: 'text' }
-							).subscribe(
-								(resp) => {
-									console.log('logout successful: ', resp);
-									this.events.publish(AppPublishEvents.APP_CHANGE_ROOT, null);
-								},
-								(error) => {
-									console.log('logout error: ', error);
-									this.events.publish(AppPublishEvents.APP_CHANGE_ROOT, null);
-								}
-							);
-						}
+						// fire a logout api to complete the session timeout scenario
+						// don't care about the logout complete callback, just fire event to redirect to login page
+						this.httpClient.get(logout,
+							{ responseType: 'text' }
+						).subscribe(
+							(resp) => {
+								console.log('logout successful: ', resp);
+								this.events.publish(AppPublishEvents.APP_CHANGE_ROOT, null);
+							},
+							(error) => {
+								console.log('logout error: ', error);
+								this.events.publish(AppPublishEvents.APP_CHANGE_ROOT, null);
+							}
+						);
 					}
 				}
 			}

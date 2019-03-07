@@ -266,11 +266,11 @@ export class SharedService {
   }
   
   public environmentIsWeb(): boolean {
-      let envName = ConfigFactory.getEnvironmentName();
-      if (envName == null) {
-          throw new Error(`environment name is not configured!`);
+      let env = ConfigFactory.getEnvironment();
+      if (env == null) {
+          throw new Error(`environment is not configured!`);
       } else {
-        return envName.toLowerCase().indexOf("dev") > -1
+          return env.envName.toLowerCase().indexOf("dev") > -1
       }
   }
 
