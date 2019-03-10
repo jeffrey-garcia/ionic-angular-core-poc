@@ -1,0 +1,17 @@
+<div class="empty-list-message-content" *ngIf="messageContent">
+	<div class="message-body" [ngStyle]="messageContent.styles.body">
+		<ion-row class="icon-row">
+			<mat-icon class="empty-icon" [svgIcon]="messageContent.icon"></mat-icon>
+		</ion-row>
+		<ion-row class="text-row" [ngStyle]="messageContent.styles.text">
+			<ion-col>
+				<span [class]="message.fontStyle" *ngFor="let message of messageContent.messages">
+						{{ (message.text | translate) + ' ' }}
+				</span>
+			</ion-col>
+		</ion-row>
+		<ion-row [ngStyle]="messageContent.styles.bottomiconRow">
+			<mat-icon [ngStyle]="messageContent.styles.bottomicon" [svgIcon]="messageContent.bottomicon"></mat-icon>
+		</ion-row>
+	</div>
+</div>

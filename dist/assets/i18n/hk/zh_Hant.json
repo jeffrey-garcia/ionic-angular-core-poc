@@ -1,0 +1,4 @@
+{
+    "TESTING_MESSAGE_1": "這是一條測試信息",
+    "CURRENT_MONTH": "這個月： {{month}}"
+}

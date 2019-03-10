@@ -1,0 +1,7 @@
+<button mat-icon-button class="header-button" (click)="onBackButtonClick()">
+  <mat-icon 
+    svgIcon="back" 
+    class="menu-button"
+    [class.color-advisors]="this.sharedService.activity == 'HIERARCHY.MY_TEAM'">
+  </mat-icon>
+</button>
