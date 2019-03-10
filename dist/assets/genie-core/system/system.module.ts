@@ -28,6 +28,7 @@ export { WindowRef } from './scripts/WindowRef';
 export { createTranslateLoader, LocaleConfig, SystemLocale, getDefaultLocaleByCountryCode, getSupportedLocaleByCountryCode } from './config/locale-config.model';
 export { ConfigFactory, CountryConfig, SystemCountry } from './config/system-config.model';
 export { Currency, CurrencyConfig, SystemCurrency } from './config/currency-config.model';
+export { EnvironmentConfig } from './config/environment-config.model';
 
 @NgModule({
   imports: [
