@@ -39,7 +39,7 @@
     "@angular/cdk": "5.2.5",
     "@ngx-translate/core": "9.1.1",
     "@ngx-translate/http-loader": "2.0.1",
-    "manulife-mobile-ionic-angular-ui": "git+https://git.ap.manulife.com/scm/cmp/cmp-ionic-angular-theme.git#0.1.4"
+    "manulife-mobile-ionic-angular-ui": "git+https://git.ap.manulife.com/scm/~jeffrey_garcia_wong_mfcgd.com/cmp-ionic-angular-theme.git#0.1.4"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.4",
